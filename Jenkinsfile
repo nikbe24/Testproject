@@ -6,6 +6,7 @@ pipeline {
             steps {
                 
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nikbe24/Testproject.git'
+            
             }
         }
 
@@ -24,7 +25,8 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                docker run -d --name my-app -p 3000:3000 my-bash-app
+                docker run -d -p 80:80 my-bash-app
+                
                 '''
             }
         }
