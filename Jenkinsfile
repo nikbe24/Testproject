@@ -26,7 +26,7 @@ pipeline {
                 sh '''
                 docker stop my-bash-app || true
                 docker rm my-bash-app || true
-                docker run -d --name my-bash-app -p 5000:8080 my-bash-app
+                docker run -d --name my-bash-app -p 3000:3000 my-bash-app
                 '''
             }
         }
