@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 
-                git branch: 'main', url: 'https://github.com/nikbe24/Testproject.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nikbe24/Testproject.git'
             }
         }
 
@@ -24,9 +24,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                docker stop my-bash-app || true
-                docker rm my-bash-app || true
-                docker run -d --name my-bash-app -p 3000:3000 my-bash-app
+                docker run -d --name my-app -p 3000:3000 my-bash-app
                 '''
             }
         }
